@@ -752,3 +752,72 @@
       background: var(--border);
       margin: 2rem 0;
     }
+
+    /* ─── HAMBURGER BUTTON ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media(max-width:768px){
+      .nav-hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(14,14,14,0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        z-index: 99;
+        list-style: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a {
+        display: block;
+        padding: 14px 5%;
+        font-size: 1rem;
+        color: rgba(255,255,255,0.8);
+      }
+      .nav-links a:hover { color: var(--accent); }
+      .nav-resume {
+        margin: 0.75rem 5% 0 !important;
+        display: inline-block !important;
+        padding: 10px 20px !important;
+        background: linear-gradient(135deg,#00c6ff,#7b61ff) !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+        color: #fff !important;
+      }
+    }
